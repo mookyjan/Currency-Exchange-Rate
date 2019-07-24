@@ -20,6 +20,11 @@ ext {
     test_runner = '1.0.2'
     test_espresso = '3.0.2'
 
+    minSdkVersion =21
+    compileSdkVersion=28
+    targetSdkVersion=28
+    versionCode=1
+    versionName="1.0"
 
     generalDependencies = [
             kotlin_version       : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
@@ -45,7 +50,6 @@ ext {
             junit                : "junit:junit:$junit",
             support_test_runner  : "com.android.support.test:runner:$test_runner",
             support_test_espresso: "com.android.support.test.espresso:espresso-core:$test_espresso"
-
 
     ]
 }
