@@ -20,8 +20,8 @@ android {
         }
     }
 
-    dataBinding{
-        enabled= true
+    dataBinding {
+        enabled = true
     }
 
     compileOptions {
@@ -32,30 +32,33 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation rootProject.ext.generalDependencies.kotlin_version
+    implementation rootProject.ext.generalDependencies.app_support
 
-    implementation "androidx.core:core:1.0.2"
-    implementation "com.google.android.material:material:1.1.0-alpha08"
-    api project(':domain')
+    testImplementation rootProject.ext.generalDependencies.junit
+    androidTestImplementation rootProject.ext.generalDependencies.support_test_runner
+    androidTestImplementation rootProject.ext.generalDependencies.support_test_espresso
+
+    implementation rootProject.ext.generalDependencies.android_core
+
+    implementation rootProject.ext.generalDependencies.material_design
+    implementation project(':domain')
 
     //Dagger
-    implementation "com.google.dagger:dagger:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    implementation "com.google.dagger:dagger-android:$dagger_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger_version"
-    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    implementation rootProject.ext.generalDependencies.dagger_version
+    kapt rootProject.ext.generalDependencies.dagger_compiler
+    implementation rootProject.ext.generalDependencies.dagger_android
+    implementation rootProject.ext.generalDependencies.dagger_support
+    kapt rootProject.ext.generalDependencies.dagger_anno
 
     //Rx
-    implementation "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version"
-    implementation "io.reactivex.rxjava2:rxandroid:$rx_java_version"
+    implementation rootProject.ext.generalDependencies.rx_kotlin
+    implementation rootProject.ext.generalDependencies.rx_android
 
-    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout"
+    implementation rootProject.ext.generalDependencies.constraint_layout
 
-    implementation "com.jakewharton.timber:timber:$timber"
-    implementation 'com.irozon.sneaker:sneaker:1.0.3'
-    implementation "com.intuit.sdp:sdp-android:$sdp"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecylce"
+    implementation rootProject.ext.generalDependencies.timber
+    implementation rootProject.ext.generalDependencies.sneaker
+    implementation rootProject.ext.generalDependencies.sdp
+    implementation rootProject.ext.generalDependencies.lifecycle
 }

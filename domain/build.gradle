@@ -4,13 +4,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 27
-
+    compileSdkVersion 28
 
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
@@ -29,22 +28,25 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation rootProject.ext.generalDependencies.kotlin_version
+    implementation rootProject.ext.generalDependencies.app_support
+
+    testImplementation rootProject.ext.generalDependencies.junit
+    androidTestImplementation rootProject.ext.generalDependencies.support_test_runner
+    androidTestImplementation rootProject.ext.generalDependencies.support_test_espresso
+
+    implementation rootProject.ext.generalDependencies.android_core
 
     api project(':data')
 
     //Dagger
-    implementation "com.google.dagger:dagger:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    implementation "com.google.dagger:dagger-android:$dagger_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger_version"
-    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    implementation rootProject.ext.generalDependencies.dagger_version
+    kapt rootProject.ext.generalDependencies.dagger_compiler
+    implementation rootProject.ext.generalDependencies.dagger_android
+    implementation rootProject.ext.generalDependencies.dagger_support
+    kapt rootProject.ext.generalDependencies.dagger_anno
 
     //Rx
-    implementation "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version"
-    implementation "io.reactivex.rxjava2:rxandroid:$rx_java_version"
+    implementation rootProject.ext.generalDependencies.rx_kotlin
+    implementation rootProject.ext.generalDependencies.rx_android
 }
