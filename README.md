@@ -3,6 +3,7 @@ This project follows Clean Architecture with MVVM
 
 # Main libraries used
 
+* Data Binding
 * Dagger2
 * RxJava2
 * Retrofit2
